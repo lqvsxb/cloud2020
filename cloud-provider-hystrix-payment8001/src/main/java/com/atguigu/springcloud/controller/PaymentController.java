@@ -17,17 +17,27 @@ public class PaymentController {
     private PaymentService paymentService;
     @Value("${server.port}")
     private String serverPort;
+
     @GetMapping("/payment/hystrix/ok/{id}")
     public String paymentInfo_OK(@PathVariable("id") Integer Id) {
         String result = paymentService.paymentInfo_OK(Id);
-        log.info("========result"+result);
+        log.info("========result" + result);
         return result;
     }
 
     @GetMapping("/payment/hystrix/timeout/{id}")
     public String paymentInfo_TimeOut(@PathVariable("id") Integer Id) {
         String result = paymentService.paymentInfo_TimeOut(Id);
-        log.info("========result"+result);
+        log.info("========result" + result);
         return result;
+    }
+
+    //服务熔断
+    @GetMapping("/payment/circuit/{id}")
+    public String paymentCircuitBreaker(@PathVariable("id") Integer Id) {
+        String result = paymentService.paymentCircuitBreaker(Id);
+        log.info("========>result:"+result);
+        return result;
+
     }
 }
