@@ -1,4 +1,4 @@
-package com.atguigu.springcloud.controller;
+package com.atguigu.springcloud.com.atguigu.springcloud.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,7 +17,7 @@ public class ReceiveMessageListenerController {
 
     @StreamListener(Sink.INPUT)
     public void input(Message<String> message) {
-        log.info("消费者1号，--------------》接收到消息：" + message.getPayload()+"\t  port: "+serverPort);
+        log.info("消费者2号，--------------》接收到消息：" + message.getPayload()+"\t  port: "+serverPort);
 
     }
 }
