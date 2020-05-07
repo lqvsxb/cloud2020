@@ -1,19 +1,13 @@
 package com.atguigu.springcloud.alibaba.dao;
 
 import com.atguigu.springcloud.alibaba.domain.Order;
-import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
-@Mapper
+
 public interface OrderMapper {
-    int deleteByPrimaryKey(Long id);
+    //新建订单
+    int insert(Order order);
+    //修改订单状态，从0改为1
+    int updateByPrimaryKeySelective(@Param("userId") Long userId,@Param("status") Integer status);
 
-    int insert(Order record);
-
-    int insertSelective(Order record);
-
-    Order selectByPrimaryKey(Long id);
-
-    int updateByPrimaryKeySelective(Order record);
-
-    int updateByPrimaryKey(Order record);
 }

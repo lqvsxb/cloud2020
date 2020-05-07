@@ -1,17 +1,10 @@
 package com.atguigu.springcloud.alibaba.dao;
 
-import com.atguigu.springcloud.alibaba.domain.Storage;
+import org.apache.ibatis.annotations.Param;
 
 public interface StorageMapper {
-    int deleteByPrimaryKey(Long id);
 
-    int insert(Storage record);
+    //扣减库存
+    int decrease(@Param("productId") Long productId, @Param("count") Integer count);
 
-    int insertSelective(Storage record);
-
-    Storage selectByPrimaryKey(Long id);
-
-    int updateByPrimaryKeySelective(Storage record);
-
-    int updateByPrimaryKey(Storage record);
 }

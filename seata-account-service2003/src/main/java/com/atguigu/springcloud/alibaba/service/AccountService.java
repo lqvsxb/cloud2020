@@ -1,19 +1,13 @@
 package com.atguigu.springcloud.alibaba.service;
 
-import com.atguigu.springcloud.alibaba.domain.Account;
+import java.math.BigDecimal;
+
 public interface AccountService{
 
-
-    int deleteByPrimaryKey(Long id);
-
-    int insert(Account record);
-
-    int insertSelective(Account record);
-
-    Account selectByPrimaryKey(Long id);
-
-    int updateByPrimaryKeySelective(Account record);
-
-    int updateByPrimaryKey(Account record);
-
+    /**
+     * 扣减账户余额
+     * @param userId 用户id
+     * @param money 金额
+     */
+    void decrease(Long userId, BigDecimal money);
 }

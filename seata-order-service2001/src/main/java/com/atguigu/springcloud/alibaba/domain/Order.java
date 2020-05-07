@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import org.apache.ibatis.type.Alias;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 /**
  * 订单表
@@ -35,7 +36,7 @@ public class Order implements Serializable {
     /**
      * 金额
      */
-    private Long money;
+    private BigDecimal money;
 
     /**
      * 订单状态:  0:创建中 1:已完结
